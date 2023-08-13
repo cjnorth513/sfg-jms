@@ -17,7 +17,16 @@ public class HelloMessageListener {
     public void listen(@Payload HelloWorldMessage helloWorldMessage,
                        @Headers MessageHeaders headers, Message message){
 
+//        System.out.println("I got a Message!!!");
+//        System.out.println(helloWorldMessage);
+    }
+
+    @JmsListener(destination = JmsConfig.MY_SEND_REC_QUEUE)
+    public void listenForHello(@Payload HelloWorldMessage helloWorldMessage,
+                       @Headers MessageHeaders headers, Message message){
+
         System.out.println("I got a Message!!!");
         System.out.println(helloWorldMessage);
     }
+
 }
